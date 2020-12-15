@@ -2,7 +2,9 @@ package ge.edu.btu.dao;
 
 import ge.edu.btu.model.Employee;
 
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
@@ -41,6 +43,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     public void deletEemployee(long id) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM employee WHERE id = ?");
         preparedStatement.setLong(1,id );
+        preparedStatement.close();
     }
 
     @Override
@@ -59,7 +62,20 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
-    public List<Employee> getall() {
+    public List<Employee> getall() throws SQLException {
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM employee");
+
+        List <Employee> list = new ArrayList<>();
+        while (resultSet.next()){
+            long id = resultSet.getLong("id");
+            String name = resultSet.getString("name");
+            String surname = resultSet.getString("surname");
+            String gender = resultSet.getString("gender");
+            boolean alive = resultSet.getBoolean("alive");
+            String p_id = resultSet.getString("p_id");
+        }
+
         return null;
     }
 

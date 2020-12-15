@@ -22,5 +22,5 @@ public interface EmployeeDAO {
 
     void closeConnect() throws SQLException;
 
-    List<Employee> getall();
+    List<Employee> getall() throws SQLException;
 }
