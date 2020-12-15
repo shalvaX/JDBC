@@ -8,15 +8,15 @@ import java.util.List;
 public interface EmployeeDAO {
     void addEmployee(Employee employee) throws SQLException;
 
-    void addEmployees(List<Employee> employees);
+    void addEmployees(List<Employee> employees) throws SQLException;
 
-    void deletEemployees(List<Employee> employees);
+    void deletEemployees(List<Employee> employees) throws SQLException;
 
     void deletEemployee(long id) throws SQLException;
 
     void updatEemployees(List<Employee> employees);
 
-    void updatEemployee(long id);
+    void updatEemployee(long id, Employee employee) throws SQLException;
 
     void setAliveEmployee(long id,boolean alive);
 

@@ -1,5 +1,7 @@
 package ge.edu.btu.model;
 
+import java.util.List;
+
 public class Employee {
     private long id;
     private String name;
@@ -8,7 +10,17 @@ public class Employee {
     private boolean alive;
     private String p_id;
 
+
     private Employee(){}
+
+    public Employee(long id, String name, String surname, String gender, boolean alive, String p_id) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.gender = gender;
+        this.alive = alive;
+        this.p_id = p_id;
+    }
 
     public long getId() {
         return id;
@@ -57,4 +69,6 @@ public class Employee {
     public void setP_id(String p_id) {
         this.p_id = p_id;
     }
+
+
 }
